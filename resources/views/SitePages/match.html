@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список университетов</title>
+    <link rel="stylesheet" href="match.css">
+</head>
+<body>
+
+<div class="container">
+    <aside>
+        <div class="filter-form">
+            <h3>Фильтр</h3>
+            <label for="name-filter">По названию:</label>
+            <input type="text" id="name-filter">
+            <label for="city-filter">По городу:</label>
+            <input type="text" id="city-filter">
+            <!-- Добавьте другие поля фильтрации при необходимости -->
+        </div>
+    </aside>
+    <main id="main-content">
+        <div class="university-card" onclick="redirectToUniversityPage('university.html')">
+            <div class="match-percentage">
+                <strong>85%</strong>
+            </div>
+            <div class="university-info">
+                <h3>Название университета</h3>
+                <p>Город: Название города</p>
+                <p>Продолжительность обучения: 4 года</p>
+            </div>
+        </div>
+
+        <div class="university-card" onclick="redirectToUniversityPage('university.html')">
+            <div class="match-percentage">
+                <strong>70%</strong>
+            </div>
+            <div class="university-info">
+                <h3>Название университета 2</h3>
+                <p>Город: Название города 2</p>
+                <p>Продолжительность обучения: 5 года</p>
+            </div>
+        </div>
+
+        <!-- Добавьте сколько угодно карточек университетов, повторяя этот шаблон -->
+    </main>
+</div>
+
+<script>
+    function redirectToUniversityPage(pageUrl) {
+        window.location.href = pageUrl;
+    }
+</script>
+
+</body>
+</html>

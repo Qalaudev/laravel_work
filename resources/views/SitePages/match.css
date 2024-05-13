@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+aside {
+    width: 30%;
+}
+main {
+    width: 65%;
+}
+.university-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* Добавлено свойство курсора для указания, что элемент является интерактивным */
+    transition: background-color 0.3s ease; /* Анимация изменения цвета при наведении */
+}
+.university-card:hover {
+    background-color: #f0f0f0; /* Изменение цвета фона при наведении */
+}
+.university-info {
+    flex: 1;
+    padding-left: 10px;
+}
+.filter-form {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+}
+.filter-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+.filter-form input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+.filter-form h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}

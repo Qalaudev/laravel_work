@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Формы во вкладках</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="content">
+    <div class="tab">
+        <button class="tablinks" onclick="openForm(event, 'searchForm')">Курстар</button>
+        <button class="tablinks" onclick="openForm(event, 'otherForm')">Әскери кафедра</button>
+    </div>
+
+    <div id="searchForm" class="tabcontent" style="display:block;">
+        <form action="#" method="GET">
+            <label for="university">университет атауы:</label>
+            <input type="text" id="university" name="university" placeholder="Университет атауын еңгізіңіз">
+            
+            <label for="faculty">Факультет:</label>
+            <select id="faculty" name="faculty">
+                <option value="faculty1">Факультет 1</option>
+                <option value="faculty2">Факультет 2</option>
+                <!-- Здесь можно добавить другие факультеты -->
+            </select>
+
+            <label for="admission_season">Оқуға түскен семестр:</label>
+            <select id="admission_season" name="admission_season">
+                <option value="autumn">Көктемгі семестр</option>
+                <option value="winter">Күзгі семестр</option>
+            </select>
+            
+            <label for="admission_year">Түскен жылы:</label>
+            <select id="admission_year" name="admission_year">
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <!-- Здесь можно добавить другие года по желанию -->
+            </select>
+            
+            <!--<input type="submit" value="Поиск">-->
+        </form>
+        <form id="universityForm" action="#" method="GET">
+            <!-- Текущий код формы -->
+        
+            <input type="submit" value="Университет таңдау" class="btn-select-university">
+        </form>
+
+    </div>
+
+    <div id="otherForm" class="tabcontent">
+        <h3>Другая форма</h3>
+        <p>Здесь может быть другая форма.</p>
+    </div>
+</div>
+
+<div class="sidebar">
+    <h2>Мои курсы</h2>
+    <table>
+        <tr>
+            <th>Название курса</th>
+            <th>Преподаватель</th>
+        </tr>
+        <tr>
+            <td>Курс 1</td>
+            <td>Преподаватель 1</td>
+        </tr>
+        <tr>
+            <td>Курс 2</td>
+            <td>Преподаватель 2</td>
+        </tr>
+        <!-- Добавьте другие курсы по мере необходимости -->
+    </table>
+    <button class="btn-find-similar" onclick="openSimilarCourses()">Найти схожие</button>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('universityForm');
+    const resultContainer = document.getElementById('resultContainer');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        fetch('C://Users/User/Desktop/ДИПЛОМ САЙТ/diplomproject/diplom/SitePages/conn.php') // Укажи адрес скрипта на сервере
+            .then(response => response.json())
+            .then(data => {
+                resultContainer.innerHTML = '';
+                data.forEach(item => {
+                    const div = document.createElement('div');
+                    div.textContent = `${item.field1} - ${item.field2}`; // Замени field1 и field2 на поля из таблицы sabaqtar
+                    resultContainer.appendChild(div);
+                });
+            })
+            .catch(error => console.error('Ошибка при получении данных:', error));
+    });
+});
+
+</script>
+
+</body>
+</html>
